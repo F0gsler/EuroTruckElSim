@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://brsvrd8d1jce7"]
+
+[ext_resource type="Script" uid="uid://x2a0np0wxpm3" path="res://Truck.cs" id="1_ysele"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_loq3h"]
+size = Vector2(200, 80)
+
+[node name="Truck" type="CharacterBody2D" unique_id=1416576027]
+script = ExtResource("1_ysele")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=747569436]
+offset_right = 200.0
+offset_bottom = 80.0
+color = Color(1, 0, 0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1849873578]
+position = Vector2(100, 40)
+shape = SubResource("RectangleShape2D_loq3h")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1315790407]
