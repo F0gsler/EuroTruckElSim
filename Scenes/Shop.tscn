@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d3satowqakdi3"]
+
+[ext_resource type="Script" uid="uid://cpn5p4jp3omon" path="res://Scripts/Shop/ShopUI.cs" id="1_shop"]
+
+[node name="Shop" type="VBoxContainer" unique_id=516454842]
+offset_left = 20.0
+offset_top = 20.0
+script = ExtResource("1_shop")

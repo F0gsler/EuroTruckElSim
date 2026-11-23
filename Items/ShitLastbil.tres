@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ShopItem" format=3 uid="uid://b5wphyl3rce1b"]
+
+[ext_resource type="Script" uid="uid://clhet4bf1bghj" path="res://Scripts/Shop/ShopItem.cs" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+Name = "Shit El LastBil"
+Price = 100
