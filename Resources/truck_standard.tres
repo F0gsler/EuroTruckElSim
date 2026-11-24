@@ -7,3 +7,4 @@
 script = ExtResource("1_script")
 Name = "Standard"
 Image = ExtResource("1_wdjmh")
+Speed = 400.0
