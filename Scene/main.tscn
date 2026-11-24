@@ -5,7 +5,6 @@
 [node name="main" type="Node2D" unique_id=64739838]
 
 [node name="Truck" parent="." unique_id=1416576027 instance=ExtResource("1_f6udf")]
-Handling = null
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1598377239]
 offset_left = 600.0
