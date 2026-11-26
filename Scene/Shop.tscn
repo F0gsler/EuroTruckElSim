@@ -4,5 +4,5 @@
 
 [node name="Shop" type="VBoxContainer" unique_id=516454842]
 offset_left = 20.0
-offset_top = 20.0
+offset_top = 170.0
 script = ExtResource("1_shop")

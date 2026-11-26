@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dygof2ayfoc0l" path="res://Sprites/Træ_01.png" id="7_trae1"]
 [ext_resource type="Texture2D" uid="uid://jcm252mcf65n" path="res://Sprites/Træ_02.png" id="8_trae2"]
 [ext_resource type="Texture2D" uid="uid://ctdsnkttxwte3" path="res://Sprites/Vej.png" id="9_vej"]
+[ext_resource type="Script" uid="uid://lpmmlcasbvho" path="res://Scripts/MissionManager.cs" id="10_missions"]
 
 [node name="main" type="Node2D" unique_id=64739838]
 
@@ -82,6 +83,18 @@ position = Vector2(0, 36)
 scale = Vector2(4, 4)
 texture = ExtResource("9_vej")
 centered = false
+
+[node name="Missions" type="Node2D" parent="." unique_id=301016]
+script = ExtResource("10_missions")
+
+[node name="Pickup" type="Marker2D" parent="Missions" unique_id=301017]
+position = Vector2(1000, 34)
+
+[node name="Delivery" type="Marker2D" parent="Missions" unique_id=301018]
+position = Vector2(2000, 34)
+
+[node name="Charger" type="Marker2D" parent="Missions" unique_id=301019]
+position = Vector2(3000, 34)
 
 [node name="Truck" parent="." unique_id=1416576027 instance=ExtResource("1_f6udf")]
 
