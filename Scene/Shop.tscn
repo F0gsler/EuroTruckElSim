@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d3satowqakdi3"]
 
-[ext_resource type="Script" uid="uid://cpn5p4jp3omon" path="res://Scripts/Shop/ShopUI.cs" id="1_shop"]
+[ext_resource type="Script" uid="uid://cpn5p4jp3omon" path="res://Scripts/ShopUI.cs" id="1_shop"]
 
 [node name="Shop" type="VBoxContainer" unique_id=516454842]
 offset_left = 20.0

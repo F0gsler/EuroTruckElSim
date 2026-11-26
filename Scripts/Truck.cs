@@ -6,8 +6,14 @@ public partial class Truck : CharacterBody2D
 
 	public override void _Ready()
 	{
-		Sprite2D sprite = GetNode<Sprite2D>("Sprite2D");
-		sprite.Texture = Handling.Image;
+		SetHandling(Handling);
+	}
+
+	// Skifter lastbilen (bruges også af shoppen)
+	public void SetHandling(TruckHandling handling)
+	{
+		Handling = handling;
+		GetNode<Sprite2D>("Sprite2D").Texture = handling.Image;
 	}
 
 	public override void _PhysicsProcess(double delta)

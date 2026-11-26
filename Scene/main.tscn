@@ -1,22 +1,91 @@
 [gd_scene format=3 uid="uid://jhpc6ff33uf0"]
 
 [ext_resource type="PackedScene" uid="uid://brsvrd8d1jce7" path="res://Scene/truck.tscn" id="1_f6udf"]
+[ext_resource type="PackedScene" uid="uid://d3satowqakdi3" path="res://Scene/Shop.tscn" id="2_shop"]
+[ext_resource type="Texture2D" uid="uid://bmwbfjwwyjh36" path="res://Sprites/Himmel.png" id="3_himmel"]
+[ext_resource type="Texture2D" uid="uid://tu332wmjkupr" path="res://Sprites/Sky_01.png" id="4_sky1"]
+[ext_resource type="Texture2D" uid="uid://brjabef4jt5fi" path="res://Sprites/Sky_02.png" id="5_sky2"]
+[ext_resource type="Texture2D" uid="uid://b43ciqhsavpk7" path="res://Sprites/Bakker.png" id="6_bakker"]
+[ext_resource type="Texture2D" uid="uid://dygof2ayfoc0l" path="res://Sprites/Træ_01.png" id="7_trae1"]
+[ext_resource type="Texture2D" uid="uid://jcm252mcf65n" path="res://Sprites/Træ_02.png" id="8_trae2"]
+[ext_resource type="Texture2D" uid="uid://ctdsnkttxwte3" path="res://Sprites/Vej.png" id="9_vej"]
 
 [node name="main" type="Node2D" unique_id=64739838]
 
+[node name="Himmel" type="Parallax2D" parent="." unique_id=301001]
+scroll_scale = Vector2(0.05, 1)
+repeat_size = Vector2(1280, 0)
+repeat_times = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Himmel" unique_id=301002]
+position = Vector2(0, -580)
+scale = Vector2(4, 4)
+texture = ExtResource("3_himmel")
+centered = false
+
+[node name="Skyer" type="Parallax2D" parent="." unique_id=301003]
+scroll_scale = Vector2(0.2, 1)
+repeat_size = Vector2(1400, 0)
+repeat_times = 6
+
+[node name="Sky1" type="Sprite2D" parent="Skyer" unique_id=301004]
+position = Vector2(100, -420)
+scale = Vector2(4, 4)
+texture = ExtResource("4_sky1")
+centered = false
+
+[node name="Sky2" type="Sprite2D" parent="Skyer" unique_id=301005]
+position = Vector2(750, -360)
+scale = Vector2(4, 4)
+texture = ExtResource("5_sky2")
+centered = false
+
+[node name="Bakker" type="Parallax2D" parent="." unique_id=301006]
+scroll_scale = Vector2(0.5, 1)
+repeat_size = Vector2(640, 0)
+repeat_times = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Bakker" unique_id=301007]
+position = Vector2(0, -220)
+scale = Vector2(4, 4)
+texture = ExtResource("6_bakker")
+centered = false
+
+[node name="Traeer" type="Parallax2D" parent="." unique_id=301008]
+repeat_size = Vector2(900, 0)
+repeat_times = 6
+
+[node name="Trae1" type="Sprite2D" parent="Traeer" unique_id=301009]
+position = Vector2(100, -188)
+scale = Vector2(4, 4)
+texture = ExtResource("7_trae1")
+centered = false
+
+[node name="Trae2" type="Sprite2D" parent="Traeer" unique_id=301010]
+position = Vector2(550, -188)
+scale = Vector2(4, 4)
+texture = ExtResource("8_trae2")
+centered = false
+
+[node name="Vej" type="Parallax2D" parent="." unique_id=301011]
+repeat_size = Vector2(512, 0)
+repeat_times = 6
+
+[node name="Jord" type="ColorRect" parent="Vej" unique_id=301012]
+offset_top = 148.0
+offset_right = 512.0
+offset_bottom = 748.0
+color = Color(0.427, 0.627, 0.459, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Vej" unique_id=301013]
+position = Vector2(0, 36)
+scale = Vector2(4, 4)
+texture = ExtResource("9_vej")
+centered = false
+
 [node name="Truck" parent="." unique_id=1416576027 instance=ExtResource("1_f6udf")]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1598377239]
-offset_left = 600.0
-offset_right = 640.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=301014]
 
-[node name="ColorRect2" type="ColorRect" parent="." unique_id=137951019]
-offset_left = 1200.0
-offset_right = 1240.0
-offset_bottom = 40.0
-
-[node name="ColorRect3" type="ColorRect" parent="." unique_id=2131451145]
-offset_left = 1800.0
-offset_right = 1840.0
-offset_bottom = 40.0
+[node name="Shop" parent="CanvasLayer" unique_id=301015 node_paths=PackedStringArray("Truck") instance=ExtResource("2_shop")]
+Truck = NodePath("../../Truck")

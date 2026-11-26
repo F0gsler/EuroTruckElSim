@@ -1,8 +1,12 @@
-[gd_resource type="Resource" script_class="ShopItem" format=3 uid="uid://bi2wt7tnv2356"]
+[gd_resource type="Resource" script_class="TruckHandling" format=3 uid="uid://bi2wt7tnv2356"]
 
-[ext_resource type="Script" uid="uid://clhet4bf1bghj" path="res://Scripts/Shop/ShopItem.cs" id="1_script"]
+[ext_resource type="Script" uid="uid://d1138k2cyya4a" path="res://Scripts/TruckHandling.cs" id="1_script"]
+[ext_resource type="Texture2D" path="res://Sprites/Lastbil_01.png" id="2_image"]
 
 [resource]
 script = ExtResource("1_script")
 Name = "Fine El Lastbil"
 Price = 500
+co2 = 50
+Image = ExtResource("2_image")
+Speed = 400.0
