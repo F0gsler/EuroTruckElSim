@@ -8,3 +8,4 @@ public partial class TruckHandling : Resource
 	[Export] public Texture2D Image;
 	[Export] public float Speed;
 }
+	
