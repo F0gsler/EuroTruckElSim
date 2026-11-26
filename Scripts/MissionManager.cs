@@ -13,6 +13,7 @@ public partial class MissionManager : Node2D
 	private Truck _truck;
 	private CollisionShape2D _truckShape;
 	private Label _status;
+	private Label _money;
 	private ProgressBar _battery;
 	private Polygon2D _cargo;
 	private bool _interactRequested;
@@ -50,14 +51,14 @@ public partial class MissionManager : Node2D
 		hud.AddChild(panel);
 		var rows = new VBoxContainer();
 		panel.AddChild(rows);
-		rows.AddChild(new Label { Text = "THREE SIMPLE MISSIONS | A/D or arrows: drive | E: interact" });
+		_money = new Label();
+		_money.AddThemeFontSizeOverride("font_size", 28);
+		rows.AddChild(_money);
+		rows.AddChild(new Label { Text = "A/D eller pile: kør | E: hent / aflever / shop" });
 		_status = new Label();
 		rows.AddChild(_status);
 		_battery = new ProgressBar { CustomMinimumSize = new Vector2(400, 24), MaxValue = 100 };
 		rows.AddChild(_battery);
-		var restart = new Button { Text = "Restart missions", FocusMode = Control.FocusModeEnum.None };
-		restart.Pressed += () => GetTree().ReloadCurrentScene();
-		rows.AddChild(restart);
 		UpdateHud();
 	}
 
@@ -80,7 +81,7 @@ public partial class MissionManager : Node2D
 			for (int i = 0; i < _stops.Length; i++)
 			{
 				if (AtStop(i))
-					_missions.Interact((MissionProgress.Stage)i, parked);
+					_truck.Money += _missions.Interact((MissionProgress.Stage)i, parked, _truck.Handling.Cargo);
 			}
 			_interactRequested = false;
 		}
@@ -99,25 +100,27 @@ public partial class MissionManager : Node2D
 
 	private void UpdateHud()
 	{
+		_money.Text = "Pung: " + _truck.Money + " kr";
+
 		string objective = _missions.Current switch
 		{
-			MissionProgress.Stage.Pickup => "1/3 Pickup: park in the yellow bay and press E.",
-			MissionProgress.Stage.Delivery => "2/3 Delivery: park in the blue bay and press E.",
-			MissionProgress.Stage.Charge => "3/3 Charge: stay parked in the green bay until 80%.",
-			_ => "3/3 complete! Cargo delivered and battery charged."
+			MissionProgress.Stage.Pickup => "1/3 Hent: parkér i det gule felt og tryk E.",
+			MissionProgress.Stage.Delivery => "2/3 Aflever: parkér i det blå felt og tryk E.",
+			_ => "3/3 Lad op: hold stille i det grønne felt til 80%."
 		};
-		string direction = "";
-		if (_missions.Current != MissionProgress.Stage.Complete)
-		{
-			int target = (int)_missions.Current;
-			float distance = _stops[target].GlobalPosition.X - _truckShape.GlobalPosition.X;
-			if (AtStop(target))
-				direction = " | At destination";
-			else
-				direction = distance > 0 ? " | Drive RIGHT >>" : " | << Drive LEFT";
-		}
-		_status.Text = objective + direction + "\nCargo: " + (_missions.HasCargo ? "1 crate" : "empty")
-			+ $" | Battery: {_missions.BatteryPercent:0}%";
+		string direction;
+		int target = (int)_missions.Current;
+		float distance = _stops[target].GlobalPosition.X - _truckShape.GlobalPosition.X;
+		if (AtStop(target))
+			direction = " | Du er fremme";
+		else
+			direction = distance > 0 ? " | Kør HØJRE >>" : " | << Kør VENSTRE";
+
+		_status.Text = objective + direction
+			+ "\nLast: " + _missions.Crates + "/" + _truck.Handling.Cargo + " kasser"
+			+ " (" + MissionProgress.PayPerCrate + " kr pr. kasse)"
+			+ " | Batteri: " + Mathf.Round(_missions.BatteryPercent) + "%"
+			+ " | Ture: " + _missions.Trips;
 		_battery.Value = _missions.BatteryPercent;
 	}
 

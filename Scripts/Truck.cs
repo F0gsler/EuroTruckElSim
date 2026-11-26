@@ -3,6 +3,7 @@ using Godot;
 public partial class Truck : CharacterBody2D
 {
 	[Export] public TruckHandling Handling;
+	[Export] public int Money = 0; // Din pung
 
 	public override void _Ready()
 	{

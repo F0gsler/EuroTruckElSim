@@ -9,3 +9,4 @@ Name = "Fine El Lastbil"
 Price = 500
 co2 = 50
 Image = ExtResource("2_image")
+Cargo = 3

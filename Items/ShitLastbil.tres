@@ -10,3 +10,4 @@ Price = 100
 co2 = 120
 Image = ExtResource("2_image")
 Speed = 200.0
+Cargo = 1

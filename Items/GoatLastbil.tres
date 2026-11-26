@@ -9,3 +9,4 @@ Name = "GOAT El Lastbil"
 Price = 2500
 Image = ExtResource("2_image")
 Speed = 700.0
+Cargo = 6
