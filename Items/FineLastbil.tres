@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="TruckHandling" format=3 uid="uid://bi2wt7tnv2356"]
 
 [ext_resource type="Script" uid="uid://d1138k2cyya4a" path="res://Scripts/TruckHandling.cs" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://evrky77q5qea" path="res://Sprites/Lastbil_01.png" id="2_image"]
+[ext_resource type="Texture2D" uid="uid://d4c1fclwe4wij" path="res://Sprites/Lastbil_02.png" id="2_image"]
 
 [resource]
 script = ExtResource("1_script")

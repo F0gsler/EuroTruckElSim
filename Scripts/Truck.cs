@@ -21,6 +21,16 @@ public partial class Truck : CharacterBody2D
 	{
 		float retning = Input.GetAxis("move_left", "move_right");
 
+		// Vend billedet efter hvilken vej man kører
+		if (retning < 0)
+		{
+			GetNode<Sprite2D>("Sprite2D").FlipH = true;
+		}
+		else if (retning > 0)
+		{
+			GetNode<Sprite2D>("Sprite2D").FlipH = false;
+		}
+
 		Velocity = new Vector2(retning * Handling.Speed, 0);
 		MoveAndSlide();
 	}

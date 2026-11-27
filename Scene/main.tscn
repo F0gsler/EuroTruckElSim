@@ -100,17 +100,17 @@ position = Vector2(3000, 34)
 position = Vector2(-800, 34)
 
 [node name="Felt" type="ColorRect" parent="ShopStop" unique_id=301021]
-offset_left = -260.0
-offset_top = -100.0
-offset_right = 260.0
-offset_bottom = 100.0
+offset_left = -340.0
+offset_top = -150.0
+offset_right = 340.0
+offset_bottom = 110.0
 color = Color(0.6, 0.3, 0.8, 0.3)
 
 [node name="Label" type="Label" parent="ShopStop" unique_id=301022]
 offset_left = -100.0
-offset_top = -150.0
+offset_top = -230.0
 offset_right = 100.0
-offset_bottom = -120.0
+offset_bottom = -200.0
 text = "SHOP - tryk E"
 horizontal_alignment = 1
 

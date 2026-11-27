@@ -29,14 +29,14 @@ public partial class MissionManager : Node2D
 			_stops[i].AddChild(new Label
 			{
 				Text = BayStyles[i].NodeName.ToUpperInvariant(),
-				Position = new Vector2(-100, -150),
+				Position = new Vector2(-100, -230),
 				Size = new Vector2(200, 30),
 				HorizontalAlignment = HorizontalAlignment.Center
 			});
 		}
 		_cargo = new Polygon2D
 		{
-			Polygon = new[] { new Vector2(-30, -100), new Vector2(30, -100), new Vector2(30, -40), new Vector2(-30, -40) },
+			Polygon = new[] { new Vector2(-30, -164), new Vector2(30, -164), new Vector2(30, -104), new Vector2(-30, -104) },
 			Color = Colors.Goldenrod, Visible = false
 		};
 		_truck.AddChild(_cargo);
@@ -91,7 +91,7 @@ public partial class MissionManager : Node2D
 		QueueRedraw();
 	}
 
-	// The whole 388x164 truck fits in a 520x200 bay within these bounds.
+	// Even the longest truck (600 px) fits in a 680x260 bay within these bounds.
 	private bool AtStop(int index)
 	{
 		Vector2 offset = _truckShape.GlobalPosition - _stops[index].GlobalPosition;
@@ -129,7 +129,7 @@ public partial class MissionManager : Node2D
 		for (int i = 0; i < _stops.Length; i++)
 		{
 			if (_stops[i] == null) continue;
-			var bay = new Rect2(_stops[i].Position - new Vector2(260, 100), new Vector2(520, 200));
+			var bay = new Rect2(_stops[i].Position - new Vector2(340, 150), new Vector2(680, 260));
 			Color color = BayStyles[i].Color;
 			DrawRect(bay, new Color(color, 0.18f));
 			DrawRect(bay, color, false, (int)_missions.Current == i ? 5f : 2f);

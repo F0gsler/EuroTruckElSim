@@ -10,13 +10,6 @@ size = Vector2(388, 164)
 script = ExtResource("1_ysele")
 Handling = ExtResource("2_handling")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=747569436]
-offset_left = -200.0
-offset_top = -40.0
-offset_right = 228.0
-offset_bottom = 80.0
-color = Color(1, 0, 0, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1849873578]
 position = Vector2(14, 34)
 shape = SubResource("RectangleShape2D_loq3h")
